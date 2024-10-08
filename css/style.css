@@ -1,28 +1,68 @@
 body, html {
+  position: relative;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  display: flex;
   justify-content: center;
-  background-color: #f0f0f0;
+  z-index: -5;
 }
 
 .full-screen {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0b0d15;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -2;
+  color:white;
 }
 
 .login-register {
-  background-color: white;
+  position: relative;
+  background-color: #131622;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
   width: max(300px, 50%);
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.login-register::after, .login-register::before  {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-image: conic-gradient(from var(--angle), red, blue, red);
+  padding: 4px;
+  z-index: -1;
+  border-radius: 12px;
+  animation: 6s spin linear infinite;
+}
+
+.login-register::before {
+  opacity: 0.2;
+  padding: 40px;
+  filter: blur(1.5rem);
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
 }
 
 h2 {
@@ -41,7 +81,7 @@ button {
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: #28a745;
+  background-color: #386e45;
   color: white;
   cursor: pointer;
   width: 100%;
@@ -68,4 +108,21 @@ button:hover {
   padding: 15px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button {
+  position: absolute;
+  width: 100px;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
 }
