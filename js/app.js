@@ -58,6 +58,13 @@ async function handleLogin() {
   }
 }
 
+function refreshProducts() {
+  const itemList = document.getElementById('item-list');
+  itemList.innerHTML = ''; // Clear the list
+
+  showProducts(); // Fetch products again
+}
+
 function showProducts() {
   fetch('http://localhost:8000/api/getProducts/1')
     .then(response => response.json()) // Parse JSON from the response

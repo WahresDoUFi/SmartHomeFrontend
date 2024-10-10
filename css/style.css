@@ -6,6 +6,7 @@ body, html {
   width: 100%;
   justify-content: center;
   z-index: -5;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .full-screen {
@@ -20,7 +21,7 @@ body, html {
   color:white;
 }
 
-.login-register {
+.border-animation {
   position: relative;
   background-color: #131622;
   padding: 20px;
@@ -35,7 +36,7 @@ body, html {
   inherits: false;
 }
 
-.login-register::after, .login-register::before  {
+.border-animation::after, .border-animation::before  {
   position: absolute;
   content: '';
   width: 100%;
@@ -50,7 +51,7 @@ body, html {
   animation: 6s spin linear infinite;
 }
 
-.login-register::before {
+.border-animation::before {
   opacity: 0.2;
   padding: 40px;
   filter: blur(1.5rem);
@@ -81,20 +82,37 @@ button {
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: #386e45;
   color: white;
   cursor: pointer;
   width: 100%;
 }
 
+.button-login {
+  padding: 10px 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #561d8c;
+  color: #fffdfd;
+  cursor: pointer;
+  width: 90%;
+}
+
 button:hover {
-  background-color: #218838;
+  background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
 }
 
 #main-content {
   display: none;
   padding: 20px;
   width: 80%;
+  h1{
+    color: white;
+  }
+  .border-animation{
+    padding: 0px;
+    width: 50%;
+  }
 }
 
 .item-list {
@@ -103,11 +121,13 @@ button:hover {
 }
 
 .item-list li {
-  background: #fff;
+  background: #2b2d30;
+  color: white;
   margin: 10px 0;
   padding: 15px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 50%;
 }
 
 .logout-button {
@@ -116,13 +136,28 @@ button:hover {
   top: 20px;
   right: 20px;
   padding: 10px 15px;
-  background-color: #dc3545;
+  background-color: #bf1323;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.logout-button:hover {
-  background-color: #c82333;
+.refresh-button {
+  cursor: pointer;
+  position: absolute;
+  width: 100px;
+  top: 20px;
+  right: 140px;
+  justify-content: center;
+  align-items: center;
+  background-color: #561d8c;
+  border-radius: 4px;
+  text-align: center;
+  transition: 0.7s ease-in-out transform, 0.7s ease-in-out;
+}
+
+.order{
+  background-color: #0b0d15;
+  font-weight: bold;
 }
